@@ -1,0 +1,10 @@
+-twitter for world leaders
+-world leaders get pages. users can join as faction members
+-myspace-like world leader gets elected as site admin: site colors change to admin's page
+-bio
+-dm's
+-profile picture
+-factions
+-a place to review products... world leaders can report content
+-bot profiles ALL BOTS
+-encrypt passwords
