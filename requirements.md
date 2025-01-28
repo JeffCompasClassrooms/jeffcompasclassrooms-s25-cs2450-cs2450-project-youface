@@ -38,7 +38,5 @@ The leader of the website can customize the overall look of the website and them
 
 Includes Auto refresh, similar to threads and twitter, so that new posts will pop up without the user needing to reload the page. In addition, language-translation capabilities will need to be enabled as users will be from all over the world. (Localization) Also, primary users will be very high profile and will require encryption and their data will need to be inaccessible. Secondary users, not so much. This falls under security. We will also need to ensure that MyState is accessible from different mediums, such as from an Iphone to a PC. A dark mode/themes may also be implemented for some users that prefer certain colorscapes depending on their country of origin. 
 
-https://github.com/JeffCompasClassrooms/cs2450-project-lockheed-marvin/blob/main/requirements.md
-
 *Lockheed Marvin is not responsible for an increase in interstate conflicts due to world leaders interacting directly through the internet. Lockheed Marvin is not responsible for potential loss of life, property, or dignity. Lockheed Marvin is not responsible for global thermonuclear warfare.
 *Lockheed Marvin is not required to tell the truth. It is in Lockheed Marvin’s interests to produce profits for itself and shareholders, even if it means lying to the public.
