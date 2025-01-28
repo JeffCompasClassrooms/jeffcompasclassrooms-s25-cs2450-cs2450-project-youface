@@ -1,0 +1,27 @@
+PROJECT NAME:
+	Team 404
+
+BUSINESS CONTEXT:
+	Social media app marketed to professionals or hobbyists alike, for the purpose of learning.
+	Place to share common interests, where people can ask questions, share interests, create posts and make friends.
+	Feed personalized to their interests.
+
+PROBLEM STATEMENT:
+	Most social media apps are cluttered. Users' feeds are flooded with random videos and it can often be disorientating.
+	Although some apps are designed with algorithms to prevent this and to show the user what they think they would like,
+	they still do not remain loyal to this concept 100% of the time.
+	
+	Our software is designed to show the user exactly what they want to see, and they can choose when they see it.
+	It filters out other topics so the user sees what they choose.
+	
+SCOPE:
+	Will be avaible on desktop and mobile
+
+ASSUMPTIONS:
+
+
+FEATURES:
+
+
+NON-FUNCTIONAL REQUIRMENTS:
+	
