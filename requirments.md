@@ -12,16 +12,21 @@ PROBLEM STATEMENT:
 	they still do not remain loyal to this concept 100% of the time.
 	
 	Our software is designed to show the user exactly what they want to see, and they can choose when they see it.
-	It filters out other topics so the user sees what they choose.
+	It filters out other topics so the user sees what they choose using tags.
 	
 SCOPE:
-	Will be avaible on desktop and mobile
+	Will be avaible on desktop and mobile if time permits.
+	Limit the number of tags, about 3 to start.
+	Limit the size of uploads.
 
 ASSUMPTIONS:
 
 
 FEATURES:
-
+	Feed curated using tags.
+	Secure login.
+	Search bar.
+	Follow system.
 
 NON-FUNCTIONAL REQUIRMENTS:
 	
