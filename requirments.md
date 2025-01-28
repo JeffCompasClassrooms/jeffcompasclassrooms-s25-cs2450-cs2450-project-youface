@@ -20,7 +20,7 @@ SCOPE:
 	Limit the size of uploads.
 
 ASSUMPTIONS:
-
+	The app will be used on all if not most devices. User name will be different than the log in name, with the ability to choose display name.
 
 FEATURES:
 	Feed curated using tags.
