@@ -12,6 +12,7 @@ Features:
       bio
       audio sample
       pictures
+      Link to socials to see their following
     purple, yellow, bronze
     band groups
 
