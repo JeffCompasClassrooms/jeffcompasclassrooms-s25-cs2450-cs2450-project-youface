@@ -29,7 +29,6 @@ See who has viewed/liked your profile
 Access to the musicians music through other music platforms
 Link to bands social media network
 Should be able to connect profiles to show they’re in a band already. (Looking for new members)
-Direct Messaging System
 Friend Request System
 Non-Functional Requirements:
 This app will be available on the web browser.
