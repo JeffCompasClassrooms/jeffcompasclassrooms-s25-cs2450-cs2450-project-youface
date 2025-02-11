@@ -1,6 +1,6 @@
 __pycache__/
 db.json
-
+.DS_Store
 
 # Crew's terminal sanity
 .envrc
