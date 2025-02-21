@@ -11,12 +11,30 @@ a video url, reactions, and comments.
 #Takes in text.
 #Takes in picture_url (if any).
 #Takes in a video_url (if any)
+#Returns the post
 def add_post(db, user, post_id, text, picture_url, video_url):
     posts = db.table('posts')
-    posts.insert({'user': user['username'], 'post-id': post_id,
-    'text': text, 'picture-url': picture_url, 'video-url': video_url, 'reactions': [], 
-    'comments': [], 'time': time.time()})
+    post_input = {
+            'user': user['username'],
+            'post-id': 500, #We'll have a file managing the post ids.
+            'text': text,
+            'picture-url': picture_url,
+            'video-url': video_url,
+            'reactions': [],
+            'comments': [],
+            'time': time.time()
+            }
+    return posts.insert(post_input)
 
+#Adds a comment to the given post
+def add_post_comment(post, user, content):
+    posts = db.table('posts')
+    Post = tinydb.Query()
+    post['comments'].append([user['username'], content])
+    posts.upsert(post, Post.post_id == post['post_id'])
+    return 'Comment added successfully!', 'success'
+
+#Gets all posts attached to a given user
 def get_posts(db, user):
     posts = db.table('posts')
     Post = tinydb.Query()
