@@ -1,7 +1,7 @@
 import tinydb
 
 '''
-This is a user. A user is their username, password, background-color(background-color of their page),
+This is a user. A user is their username, password, profile picture, background-color(background-color of their page),
 foreground color(color of the boxes containing text, videos, etc.), text-color, flag-image-url, friends,
 and favorites.
 '''
@@ -17,10 +17,11 @@ def new_user(db, username, password):
     user_record = {
             'username': username,
             'password': password,
+            'profile_picture': "assets/default_user.jpg",
             'background-color': "#000000",
             'foreground-color': "#FFFFFF",
             'text-color': "#000000",
-            'flag-image-url': "default-flag.jpg",
+            'flag-image-url': "assets/default-flag.jpg",
             'friends': [],
             'favorites': []
             }
@@ -34,13 +35,14 @@ def get_user(db, username, password):
     return users.get((User.username == username) &
             (User.password == password))
 
-#Returns a user given just a user name.
+#Returns a user given just a user name. Used to display profiles.
 def get_user_by_name(db, username):
     users = db.table('users')
     User = tinydb.Query()
     return users.get(User.username == username)
 
-#Deletes the user from the database.
+#Deletes the user from the database given a username and password.
+#Should probably have an "are you sure?" option before calling this function.
 def delete_user(db, username, password):
     users = db.table('users')
     User = tinydb.Query()
@@ -88,7 +90,7 @@ def edit_user_colors(db, user, color, color_type):
     user[color_type] = color
     users.upsert(user, (User.username == user['username']) &
                 (User.password == user['password']))
-    return 'Comment added successfully!', 'success'
+    return '{} updated successfully!'.format(color_type), 'success'
 
 #Edits the user's flag. Replaces the current flag_url with a new flag_url.
 #MAKE SURE TO UPLOAD THE FLAG BEFORE ADDING THIS FUNCTION!
@@ -108,4 +110,4 @@ def add_favorite(db, user, favorite):
     user['favorites'].append(favorite)
     users.upsert(user, (User.username == user['username']) &
                 (User.password == user['password']))
-    return 'Favorite {}, added successfully!'.format('favorites'[0] + ': ' + 'favorites'[1]), 'success'
+    return 'Favorite {}, added successfully!'.format(favorite[0] + ': ' + favorite[1]), 'success'
