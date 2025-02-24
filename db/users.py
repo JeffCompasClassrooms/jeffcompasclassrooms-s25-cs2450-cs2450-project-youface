@@ -84,7 +84,7 @@ def get_user_friends(db, user):
 
 #Edits the user's profile picture. Replaces the current profile_pic_url with a new profile_pic_url].
 #MAKE SURE TO UPLOAD THE PROFILE PICTURE TO ASSETS BEFORE CALLING THIS FUNCTION!
-def edit_user_flag(db, user, profile_pic_url):
+def edit_user_profile_pic(db, user, profile_pic_url):
     users = db.table('users')
     User = tinydb.Query()
     user['profile_pic_url'] = profile_pic_url
