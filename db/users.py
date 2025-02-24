@@ -17,7 +17,7 @@ def new_user(db, username, password):
     user_record = {
             'username': username,
             'password': password,
-            'profile_picture': "assets/default_user.jpg",
+            'profile_pic_url': "assets/default_user.jpg",
             'background-color': "#000000",
             'foreground-color': "#FFFFFF",
             'text-color': "#000000",
@@ -82,6 +82,16 @@ def get_user_friends(db, user):
         friends.append(users.get(User.username == friend))
     return friends
 
+#Edits the user's profile picture. Replaces the current profile_pic_url with a new profile_pic_url].
+#MAKE SURE TO UPLOAD THE PROFILE PICTURE TO ASSETS BEFORE CALLING THIS FUNCTION!
+def edit_user_flag(db, user, profile_pic_url):
+    users = db.table('users')
+    User = tinydb.Query()
+    user['profile_pic_url'] = profile_pic_url
+    users.upsert(user, (User.username == user['username']) &
+                (User.password == user['password']))
+    return 'Profile picture {} added successfully!'.format(flag_url), 'success'
+
 #Given a new color, and the type of color to edit, updates the color of that type to the new color.
 #For color type, put in the type of color. For example: 'background-color', 'foreground-color', 'text-color'
 def edit_user_colors(db, user, color, color_type):
@@ -93,7 +103,7 @@ def edit_user_colors(db, user, color, color_type):
     return '{} updated successfully!'.format(color_type), 'success'
 
 #Edits the user's flag. Replaces the current flag_url with a new flag_url.
-#MAKE SURE TO UPLOAD THE FLAG BEFORE ADDING THIS FUNCTION!
+#MAKE SURE TO UPLOAD THE FLAG TO ASSETS BEFORE CALLING THIS FUNCTION!
 def edit_user_flag(db, user, flag_url):
     users = db.table('users')
     User = tinydb.Query()
