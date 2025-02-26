@@ -1,65 +1,37 @@
-<!DOCTYPE html>
-<html>
-    <head>
-      <meta charset="utf-8">
-      <title>{{ title }}</title>
-      <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}" type="text/css">
-      <link rel="stylesheet" href="{{ url_for('static', filename='youface.css') }}" type="text/css">
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </head>
-                          
-    <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-          <a class="navbar-brand" href="/">{{ title2 }}</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+{% extends "base.html" %}
 
-          <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="https://utahtech.edu">Utah Tech</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link 2</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav pull-right">
-              {% if user %}
-              <form method="post" action="/logout">
-                <button type="submit" class="form-control btn btn-secondary" name="logout">Logout</button>
-              </form>
-              {% endif %}
-            </ul>
+{% block content %}
+<div class="row">
+  <div class="col-sm-6 mx-auto">
+    <div class="card card-body bg-light">
+      <form method="post" action="/login">
+        <fieldset>
+          <legend>Create User</legend>
+          <hr />
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username">
           </div>
-        </div>
-      </nav>
-
-      <div class="jumbotron">
-        <div class="container">
-          <h1><a href="/">{{title2}}</a></h1>
-          <p class="lead">{{subtitle2}}</p>
-        </div>
-      </div>
-
-      <div class="container">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-            {% for category, message in messages %}
-            <div class="alert alert-dismissible alert-{{ category }} fade show" role="alert">
-                {{ message }}
-                <button type="button" class="close" data-dismiss="alert">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            {% endfor %}
-          {% endif %}
-        {% endwith %}
-
-        {% block content %}
-        {% endblock %}
-      </div>
-    </body>
-</html>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password">
+          </div>
+          <div class="form-group">
+            <label for="fisrtname">First name</label>
+            <input type="text" class="form-control" name="firstname">
+          </div>
+          <div class="form-group">
+            <label for="lastname">Last name</label>
+            <input type="text" class="form-control" name="lastname">
+          </div> 
+          <div class="form-group">
+            <input class="btn btn-primary" type="submit" name="type" value="Login">
+            <input class="btn btn-success" type="submit" name="type" value="Create">
+            <input class="btn btn-danger" type="submit" name="type" value="Delete">
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
