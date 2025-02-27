@@ -34,6 +34,7 @@ def login():
 
     username = flask.request.form.get('username')
     password = flask.request.form.get('password')
+    password = helpers.hash_password(password)
 
     resp = flask.make_response(flask.redirect(flask.url_for('login.index')))
     resp.set_cookie('username', username)
@@ -78,7 +79,10 @@ def index():
     user = users.get_user(db, username, password)
     if not user:
         flask.flash('Invalid credentials. Please try again.', 'danger')
-        return flask.redirect(flask.url_for('login.loginscreen'))
+        resp = flask.make_response(flask.redirect(flask.url_for('login.loginscreen')))
+        resp.set_cookie('username', '', expires=0)
+        resp.set_cookie('password', '', expires=0)
+        return resp
 
     # get the info for the user's feed
     friends = users.get_user_friends(db, user)
