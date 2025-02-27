@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <div class="row">
   <div class="col-sm-6 mx-auto">
     <div class="card card-body bg-light">
@@ -10,16 +8,41 @@
           <hr />
           <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control" name="username">
+            <input type="text" class="form-control" name="username" />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" name="password">
+            <div class="flex flex-row">
+              <input
+                id="password_input"
+                type="password"
+                class="form-control"
+                name="password"
+              />
+              <button id="show_password" type="button" class="btn btn-primary">
+                Show
+              </button>
+            </div>
           </div>
           <div class="form-group">
-            <input class="btn btn-primary" type="submit" name="type" value="Login">
-            <input class="btn btn-success" type="submit" name="type" value="Create">
-            <input class="btn btn-danger" type="submit" name="type" value="Delete">
+            <input
+              class="btn btn-primary"
+              type="submit"
+              name="type"
+              value="Login"
+            />
+            <input
+              class="btn btn-success"
+              type="submit"
+              name="type"
+              value="Create"
+            />
+            <input
+              class="btn btn-danger"
+              type="submit"
+              name="type"
+              value="Delete"
+            />
           </div>
         </fieldset>
       </form>
