@@ -20,10 +20,10 @@
           <div class="form-group">
             <input class="btn btn-primary" type="submit" name="type" value="Login">
             <p class="signup" style="margin-top: 10px;">Don't have an account?
-              <a rel="noopener noreferrer" href="#" class="">Sign up</a>
+              <a rel="noopener noreferrer" href="{{ url_for('login.register') }}" class="">Sign up</a>
            </p>
-            <!-- <input class="btn btn-success" type="submit" name="type" value="Create"> -->
-            <!-- <input class="btn btn-danger" type="submit" name="type" value="Delete"> -->
+             <input class="btn btn-success" type="submit" name="type" value="Create"> 
+             <input class="btn btn-danger" type="submit" name="type" value="Delete"> 
           </div>
         </fieldset>
       </form>
