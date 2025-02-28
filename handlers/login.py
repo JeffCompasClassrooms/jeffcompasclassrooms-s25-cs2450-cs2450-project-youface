@@ -39,7 +39,7 @@ def login():
     resp.set_cookie('username', username)
     resp.set_cookie('password', password)
 
-    submit = flask.request.form.get('type')
+    """submit = flask.request.form.get('type')
     if submit == 'Create':
         if users.new_user(db, username, password) is None:
             resp.set_cookie('username', '', expires=0)
@@ -51,7 +51,7 @@ def login():
         if users.delete_user(db, username, password):
             resp.set_cookie('username', '', expires=0)
             resp.set_cookie('password', '', expires=0)
-            flask.flash('User {} deleted successfully!'.format(username), 'success')
+            flask.flash('User {} deleted successfully!'.format(username), 'success')"""
 
     return resp
     
