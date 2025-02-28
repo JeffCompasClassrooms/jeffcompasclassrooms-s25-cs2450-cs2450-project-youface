@@ -58,6 +58,20 @@ def login():
 @blueprint.route('/register')
 def register():
     """Present a form to the user to create a new account."""
+    submit = flask.request.form.get('type')
+    if submit == 'Create':
+        if users.new_user(db, username, password) is None:
+            resp.set_cookie('username', '', expires=0)
+            resp.set_cookie('password', '', expires=0)
+            flask.flash('Username {} already taken!'.format(username), 'danger')
+            return flask.redirect(flask.url_for('login.loginscreen'))
+        flask.flash('User {} created successfully!'.format(username), 'success')
+    elif submit == 'Delete':
+        if users.delete_user(db, username, password):
+            resp.set_cookie('username', '', expires=0)
+            resp.set_cookie('password', '', expires=0)
+            flask.flash('User {} deleted successfully!'.format(username), 'success')
+
     return flask.render_template('register.html', title=copy.title, subtitle=copy.subtitle)
     
 @blueprint.route('/logout', methods=['POST'])
