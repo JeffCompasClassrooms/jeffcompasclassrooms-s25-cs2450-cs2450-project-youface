@@ -54,7 +54,12 @@ def login():
             flask.flash('User {} deleted successfully!'.format(username), 'success')
 
     return resp
-
+    
+@blueprint.route('/register')
+def register():
+    """Present a form to the user to create a new account."""
+    return flask.render_template('register.html', title=copy.title, subtitle=copy.subtitle)
+    
 @blueprint.route('/logout', methods=['POST'])
 def logout():
     """Log out the user."""
