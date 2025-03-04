@@ -58,17 +58,34 @@ def login():
 @blueprint.route('/register')
 def register():
     """Present a form to the user to create a new account."""
+    db = helpers.load_db()
+
+    username = flask.request.form.get('username')
+    password = flask.request.form.get('password')
+
     submit = flask.request.form.get('type')
-    if submit == 'Create':
-       create(db, username, password)
-    elif submit == 'Delete':
-        if users.delete_user(db, username, password):
-            resp.set_cookie('username', '', expires=0)
-            resp.set_cookie('password', '', expires=0)
-            flask.flash('User {} deleted successfully!'.format(username), 'success')
+
 
     return flask.render_template('register.html', title=copy.title, subtitle=copy.subtitle)
-    
+
+
+@blueprint.route('/registeruser', methods=['POST'])
+def registeruser():
+    db = helpers.load_db()
+
+    username = flask.request.form.get('username')
+    email = flask.request.form.get('email')
+    password = flask.request.form.get('password')
+    c_password = flask.request.form.get('cpassword') # Used to confirm if password was typed correctly
+
+    if(c_password != password):
+        return flask.redirect(flask.url_for('login.register'))
+
+    users.new_user(db, username, email, password)
+
+    return flask.redirect(flask.url_for('login.index'))
+
+
 @blueprint.route('/logout', methods=['POST'])
 def logout():
     """Log out the user."""
@@ -85,9 +102,9 @@ def index():
     db = helpers.load_db()
 
     # make sure the user is logged in
-    username = flask.request.cookies.get('username')
+    username = flask.request.cookies.get('username') # Check if the user has Cookies saved
     password = flask.request.cookies.get('password')
-    if username is None and password is None:
+    if username is None and password is None: # If there are no Cookies saved, have them Log in. They may add Cookies if their browser allows it
         return flask.redirect(flask.url_for('login.loginscreen'))
     user = users.get_user(db, username, password)
     if not user:
@@ -107,13 +124,20 @@ def index():
             friends=friends, posts=sorted_posts)
 
 
-''''@blueprint.route('/register')
-def register(db, username, password):
-     if users.new_user(db, username, password) is None:
-        resp.set_cookie('username', '', expires=0)
-        resp.set_cookie('password', '', expires=0)
-        flask.flash('Username {} already taken!'.format(username), 'danger')
-        return flask.redirect(flask.url_for('login.loginscreen'))
-    flask.flash('User {} created successfully!'.format(username), 'success')
 
-'''
+
+@blueprint.route('/delete', methods=['POST'])
+def delete():
+    db = helpers.load_db()
+
+    username = flask.request.cookies.get('username')
+    password = flask.request.cookies.get('password')
+
+    users.delete_user(db, username, password)
+
+
+    return flask.redirect(flask.url_for('login.loginscreen'))
+
+
+
+
