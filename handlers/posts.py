@@ -22,6 +22,7 @@ def post():
 
     return flask.redirect(flask.url_for('login.index'))
 
+
 @blueprint.route('/postdelete', methods=['POST'])
 def delete():
     """Deletes a post."""

@@ -4,11 +4,12 @@
 <div class="row">
   <div class="col-sm-6 mx-auto">
     <div class="card card-body bg-light">
+      
       <form method="post" action="/login">
         <fieldset>
-          <legend>Login</legend>
+          <legend style="display: flex; justify-content: center;font-size: 32px;">Login</legend>
           <hr />
-          <div class="form-group">
+          <div class="form-group t">
             <label for="username">Username</label>
             <input type="text" class="form-control" name="username">
           </div>
@@ -18,8 +19,15 @@
           </div>
           <div class="form-group">
             <input class="btn btn-primary" type="submit" name="type" value="Login">
-            <input class="btn btn-success" type="submit" name="type" value="Create">
-            <input class="btn btn-danger" type="submit" name="type" value="Delete">
+            <p class="signup" style="margin-top: 10px;">Don't have an account?
+
+
+
+              <a rel="noopener noreferrer" href="{{ url_for('login.register') }}" class="">Sign up</a>
+
+           </p>
+             <!-- <input class="btn btn-success" type="submit" name="type" value="Create"> -->
+             <!-- <input class="btn btn-danger" type="submit" name="type" value="Delete"> -->
           </div>
         </fieldset>
       </form>

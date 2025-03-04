@@ -1,2 +1,7 @@
-title = 'YouFace 2.0'
-subtitle = "A billion dollars and it's yours!"
+title = 'Taggle' 
+title2 = 'Create User'
+subtitle = "From the stars to a single note we have a group for you!"
+subtitle2 = "Please pick one or more Tags."
+
+#main
+
