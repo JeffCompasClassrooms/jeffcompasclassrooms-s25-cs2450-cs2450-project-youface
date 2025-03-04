@@ -7,7 +7,7 @@
       
       <form method="post" action="/login">
         <fieldset>
-          <legend style="display: flex; justify-content: center;font-size: 32px;">Login</legend>
+          <legend style="display: flex; justify-content: center;font-size: 32px;">Sign Up</legend>
           <hr />
           <div class="form-group">
             <label for="username">Username</label>
@@ -26,12 +26,11 @@
             <input type="password" class="form-control" name="cpassword">
           </div>
           <div class="form-group">
-            <input class="btn btn-primary" type="submit" name="type" value="Login">
+            <input class="btn btn-primary" type="submit" name="type" value="Register">
             <p class="signup" style="margin-top: 10px;">Already have an account?
-                <a rel="noopener noreferrer" href="#" class="" id="login_link" >Login here!</a>
+                <a rel="noopener noreferrer" href="{{ url_for('login.loginscreen') }}" class="" id="login_link" >Login here!</a>
             </p>
-            <input class="btn btn-success" type="submit" name="type" value="Create"> -->
-            <input class="btn btn-danger" type="submit" name="type" value="Delete"> -->
+            <!--<input class="btn btn-success" type="submit" name="type" value="Create"> -->
           </div>
         </fieldset>
       </form>
